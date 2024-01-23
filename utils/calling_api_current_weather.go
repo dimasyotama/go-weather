@@ -17,7 +17,6 @@ func CurrentWeather(location string) (*dto_current_weather.WeatherData, error){
 
 	api_key := config.Config("WEATHER_API_KEY") //Calling API KEY
 	current_weather_url := fmt.Sprintf("https://api.weatherapi.com/v1/current.json?key=%s&q=%s", api_key, location) //CALLING ENDPOINT
-	fmt.Println(current_weather_url)	
 	response, err := http.Get(current_weather_url)
 	
 	if err != nil {
