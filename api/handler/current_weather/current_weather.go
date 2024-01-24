@@ -8,12 +8,13 @@ import (
 
 func GetCurrentWeather(c *fiber.Ctx) error {
 	location :=c.Query("location")
+	aqi := c.Query("aqi")
 
 	if location == "" {
         return c.Status(400).JSON(fiber.Map{"status": "error", "message": "Empty location provided", "data": nil})
     }
 
-	weather_api, err := current_weather.CurrentWeather(location)
+	weather_api, err := current_weather.CurrentWeather(location, aqi)
 
 	log.Println(weather_api)
 	if err != nil {
