@@ -12,3 +12,5 @@ services:
       PORT: 8090
     volumes:
       - .:/app
+    env_file:
+      - .env
